@@ -1,0 +1,15 @@
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Repositorio.deps.json
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Repositorio.runtimeconfig.json
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Repositorio.runtimeconfig.dev.json
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Repositorio.dll
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Repositorio.pdb
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Entidade.dll
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\bin\Debug\netcoreapp3.1\Totvs.Entidade.pdb
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.csprojAssemblyReference.cache
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.AssemblyInfoInputs.cache
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.AssemblyInfo.cs
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.csproj.CopyComplete
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.dll
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.pdb
+C:\Users\terc.leonardo\source\repos\Totvs\Totvs.Repositorio\obj\Debug\netcoreapp3.1\Totvs.Repositorio.genruntimeconfig.cache

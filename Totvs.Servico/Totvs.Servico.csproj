@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Totvs.Servicos</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Totvs.Entidade\Totvs.Entidade.csproj" />
+    <ProjectReference Include="..\Totvs.Repositorio\Totvs.Repositorio.csproj" />
+  </ItemGroup>
+
+</Project>
