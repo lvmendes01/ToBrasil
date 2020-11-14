@@ -2,35 +2,41 @@
 using System.Collections.Generic;
 using System.Text;
 using Totvs.Entidade;
+using Totvs.Repositorio;
 using Totvs.Servico.Interfaces;
 
 namespace Totvs.Servico
 {
     public class TransacaoServico : ITransacaoServico
     {
+        private readonly ITransacaoRepositorio repositorio;
+        public TransacaoServico(ITransacaoRepositorio _repositorio)
+        {
+            repositorio = _repositorio;
+        }
         public string Atualizar(Transacao o)
         {
-            throw new NotImplementedException();
+            return repositorio.Atualizar(o);
         }
 
         public Transacao Carregar(long i)
         {
-            throw new NotImplementedException();
+            return repositorio.Carregar(i);
         }
 
         public string Delete(Transacao o)
         {
-            throw new NotImplementedException();
+            return repositorio.Delete(o);
         }
 
         public IList<Transacao> Listar()
         {
-            throw new NotImplementedException();
+            return repositorio.Listar();
         }
 
         public string Salvar(Transacao o)
         {
-            throw new NotImplementedException();
+            return repositorio.Salvar(o);
         }
     }
 }

@@ -27,7 +27,9 @@ namespace Totvs.Repositorio
                 try
                 {
                     con.Open();
-                    var query = "UPDATE Produtos SET Name = @Nome, Estoque = @Estoque, Preco = @Preco WHERE ProdutoId = " + o.Id;
+                    var query = "UPDATE [dbo].[Moedas] " +
+                        "SET Qtd = @Qtd " +
+                        "WHERE Id = " + o.Id;
                     count = con.Execute(query, o);
                 }
                 catch (Exception ex)
@@ -45,14 +47,14 @@ namespace Totvs.Repositorio
         public Moedas Carregar(long i)
         {
             var connectionString =  this.conexao.GetConnection();
-            Moedas produto = new Moedas();
+            Moedas item = new Moedas();
             using (var con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    var query = "SELECT * FROM Produtos WHERE ProdutoId =" + i;
-                    produto = con.Query<Moedas>(query).FirstOrDefault();
+                    var query = "SELECT * FROM [dbo].[Moedas] WHERE Id =" + i;
+                    item = con.Query<Moedas>(query).FirstOrDefault();
                 }
                 catch (Exception ex)
                 {
@@ -62,7 +64,7 @@ namespace Totvs.Repositorio
                 {
                     con.Close();
                 }
-                return produto;
+                return item;
             }
         }
 
@@ -75,7 +77,7 @@ namespace Totvs.Repositorio
                 try
                 {
                     con.Open();
-                    var query = "DELETE FROM Produtos WHERE ProdutoId =" + o.Id;
+                    var query = "DELETE FROM [dbo].[Moedas] WHERE Id =" + o.Id;
                     count = con.Execute(query);
                 }
                 catch (Exception ex)
@@ -93,14 +95,14 @@ namespace Totvs.Repositorio
         public IList<Moedas> Listar()
         {
             var connectionString =  this.conexao.GetConnection();
-            List<Moedas> produtos = new List<Moedas>();
+            List<Moedas> lista = new List<Moedas>();
             using (var con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
                     var query = "SELECT * FROM [dbo].[Moedas]";
-                    produtos = con.Query<Moedas>(query).ToList();
+                    lista = con.Query<Moedas>(query).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -110,7 +112,7 @@ namespace Totvs.Repositorio
                 {
                     con.Close();
                 }
-                return produtos;
+                return lista;
             }
         }
 

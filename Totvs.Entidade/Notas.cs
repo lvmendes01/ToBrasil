@@ -14,14 +14,6 @@ namespace Totvs.Entidade
 
        
 
-        public List<Notas> listaNotas()
-        {
-            List<Notas> lista = new List<Notas>();
-            lista.Add(new Notas { Id= 1, Valor = 10, Qtd = 10 });
-            lista.Add(new Notas { Id = 2, Valor = 20, Qtd = 10 });
-            lista.Add(new Notas { Id = 3, Valor = 50, Qtd = 10 });
-            lista.Add(new Notas { Id = 4, Valor = 100, Qtd = 10 });
-            return lista;
-        }
+      
     }
 }

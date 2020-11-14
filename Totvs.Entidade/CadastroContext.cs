@@ -25,7 +25,5 @@ namespace Totvs.Entidade
         public DbSet<Moedas> TB_Moedas { get; set; }
         public DbSet<Notas> TB_Notas { get; set; }
         public DbSet<Transacao> TB_Transacao { get; set; }
-        public DbSet<TransacaoMoeda> TB_TransacaoMoeda { get; set; }
-        public DbSet<TransacaoNota> TB_TransacaoNota { get; set; }
     }
 }

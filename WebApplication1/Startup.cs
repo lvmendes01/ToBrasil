@@ -33,6 +33,11 @@ namespace WebApplication1
             services.AddTransient<IConexao, Conexao>();
             services.AddTransient<IMoedaServico, MoedaServico>();
             services.AddTransient<IMoedasRepositorio, MoedasRepositorio>();
+            services.AddTransient<INotasServico, NotasServico>();
+            services.AddTransient<INotasRepositorio, NotasRepositorio>();
+            services.AddTransient<ITrocoServico, TrocoServico>();
+            services.AddTransient<ITransacaoServico, TransacaoServico>();
+            services.AddTransient<ITransacaoRepositorio, TransacaoRepositorio>();
 
 
 
@@ -67,7 +72,7 @@ namespace WebApplication1
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAPI V1");
             });
             app.UseRouting();
 

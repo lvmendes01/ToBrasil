@@ -17,17 +17,17 @@ namespace Totvs.Servico
 
         public string Atualizar(Moedas o)
         {
-            throw new NotImplementedException();
+            return repositorio.Atualizar(o);
         }
 
         public Moedas Carregar(long i)
         {
-            throw new NotImplementedException();
+            return repositorio.Carregar(i);
         }
 
         public string Delete(Moedas o)
         {
-            throw new NotImplementedException();
+            return repositorio.Delete(o);
         }
 
         public IList<Moedas> Listar()

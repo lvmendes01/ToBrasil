@@ -13,8 +13,6 @@ namespace Totvs.Entidade
         public double ValorCompra { get; set; }
         public double ValorEntregue { get; set; }
         public double ValorTroco { get; set; }
-
-        public List<TransacaoNota> NotasUtilizada { get; set; }
-        public List<TransacaoMoeda> MoedasUtilizada { get; set; }
+        public String Observacao { get; set; }
     }
 }

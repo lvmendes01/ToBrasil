@@ -10,7 +10,7 @@ using Totvs.Servico.Interfaces;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+   
     [ApiController]
     public class MoedasController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
         /// Salvar moedas
         /// </remarks>
         [HttpPost]
-        [Route("api")]
+        [Route("api/Moedas/Salvar")]
         public virtual RetornoApi Salvar(Moedas value)
         {
 
@@ -41,11 +41,52 @@ namespace WebApplication1.Controllers
 
             };
         }
+
+        /// <summary>
+        /// Moedas
+        /// </summary>
+        /// <remarks>
+        /// Atualizar moedas
+        /// </remarks>
+        [HttpPost]
+        [Route("api/Moedas/Atualizar")]
+        public virtual RetornoApi Atualizar(Moedas value)
+        {
+            var retorno = _servico.Atualizar(value);
+            return new RetornoApi
+            {
+                resultado = retorno == "1",
+                valor = retorno
+
+            };
+        }
+
+        /// <summary>
+        /// Moedas
+        /// </summary>
+        /// <remarks>
+        /// Deletar moedas
+        /// </remarks>
+        [HttpPost]
+        [Route("api/Moedas/Deletar")]
+        public virtual RetornoApi Deletar(Moedas value)
+        {
+
+
+            var retorno = _servico.Delete(value);
+
+            return new RetornoApi
+            {
+                resultado = retorno == "Ok",
+                valor = retorno
+
+            };
+        }
         /// <summary>
         /// Carregar Perfil
         /// </summary>
         [HttpGet]
-        [Route("api")]
+        [Route("api/Moedas/Listar")]
         [SwaggerOperation("")]
         public RetornoApi Listar()
         {
@@ -59,6 +100,22 @@ namespace WebApplication1.Controllers
             };
             return retornoApi;
         }
+        
+        
+        [HttpGet]
+        [Route("api/Moedas/{Id}")]
+        [SwaggerOperation("")]
+        public RetornoApi Carregar(Int64 Id)
+        {
+            var item = _servico.Carregar(Id);
 
+            RetornoApi retornoApi = new RetornoApi
+            {
+                resultado = (item != null),
+                valor = (item != null) ? item : null
+
+            };
+            return retornoApi;
+        }
     }
 }

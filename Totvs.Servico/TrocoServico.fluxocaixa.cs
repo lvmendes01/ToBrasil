@@ -12,7 +12,8 @@ namespace Totvs.Servico
         {
             try
             {
-                MoedasExistente.Single(s => s.Id == moedas.Id).Qtd = +moedas.Qtd;
+               
+                servicoMoedas.Atualizar(moedas);
                 return "Ok";
             }
             catch (Exception ex)
@@ -26,7 +27,8 @@ namespace Totvs.Servico
         {
             try
             {
-                NotasExistente.Single(s => s.Id == notas.Id).Qtd = +notas.Qtd;
+              
+                servicoNotas.Atualizar(notas);
                 return "Ok";
             }
             catch (Exception ex)
@@ -41,7 +43,8 @@ namespace Totvs.Servico
         {
             try
             {
-                MoedasExistente.Single(s => s.Id == moedas.Id).Qtd =- moedas.Qtd;
+              
+                servicoMoedas.Atualizar(moedas);
                 return "Ok";
             }
             catch (Exception ex)
@@ -55,7 +58,7 @@ namespace Totvs.Servico
         {
             try
             {
-                NotasExistente.Single(s => s.Id == notas.Id).Qtd =- notas.Qtd;
+                servicoNotas.Atualizar(notas);
                 return "Ok";
             }
             catch (Exception ex)
