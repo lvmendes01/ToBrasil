@@ -22,7 +22,6 @@ namespace Totvs.Servico
                 throw;
             }
         }
-
         public string AdicionarNotas(Notas notas)
         {
             try
@@ -36,9 +35,7 @@ namespace Totvs.Servico
 
                 throw;
             }
-        }
-
-  
+        }  
         public string RemoverMoedas(Moedas moedas)
         {
             try
@@ -53,7 +50,6 @@ namespace Totvs.Servico
                 throw;
             }
         }
-
         public string RemoverNotas(Notas notas)
         {
             try

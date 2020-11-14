@@ -16,6 +16,15 @@ namespace Totvs.Servico
         private readonly INotasServico servicoNotas;
         private readonly IMoedaServico servicoMoedas;
         private readonly ITransacaoServico servicoTransacao;
+
+
+        int r10 = 0, r20 = 0, r50 = 0, r100 = 0;
+        int c1 = 0, c5 = 0, c10 = 0, c50 = 0;
+        decimal parteInteira = 0;
+        decimal parteFracionaria = 0;
+        Boolean TrocoDisponivel = true;
+
+
         public TrocoServico(ITransacaoServico _servicoTransacao, INotasServico _servicoNotas, IMoedaServico _servicoMoedas)
         {
             servicoTransacao = _servicoTransacao;
@@ -26,94 +35,30 @@ namespace Totvs.Servico
         {
 
             transacao.ValorTroco = transacao.ValorEntregue - transacao.ValorCompra;
-            
-            Boolean TrocoDisponivel = true;
+
+            if (transacao.ValorTroco <= 0 )
+            {
+                transacao.Observacao = transacao.ValorTroco == 0? "Sem Troco ": "Faltando "+ transacao.ValorTroco.ToString("c").Replace("-", "");
+                servicoTransacao.Salvar(transacao);
+                return transacao;
+            }
 
 
             NotasExistente = (List<Notas>)servicoNotas.Listar();
             MoedasExistente = (List<Moedas>)servicoMoedas.Listar();
-
             decimal Dinheiro = 0;
-            int r10 = 0, r20 = 0, r50 = 0, r100 = 0;
-            int c1 = 0, c5 = 0, c10 = 0, c50 = 0;
 
 
             Dinheiro =(decimal) transacao.ValorTroco;
-            decimal parteInteira = (int)Dinheiro;
-            decimal parteFracionaria = Math.Ceiling((Dinheiro - parteInteira) * 100);
+             parteInteira = (int)Dinheiro;
+             parteFracionaria = Math.Ceiling((Dinheiro - parteInteira) * 100);
 
             string ValoresTexto = "";
 
-            while (parteInteira != 0)
-            {
-                if (parteInteira >= 100 && NotasExistente.SingleOrDefault(s=>s.Valor == 100).Qtd > 0)
-                {
-                    parteInteira -= 100;
-                    r100++;
-                    NotasExistente.SingleOrDefault(s => s.Valor == 100).Qtd --;
-                }
-                else if (parteInteira >= 50 && NotasExistente.SingleOrDefault(s => s.Valor == 50).Qtd > 0)
-                {
-                    parteInteira -= 50;
-                    r50++;
-                    NotasExistente.SingleOrDefault(s => s.Valor == 50).Qtd--;
-                }
-                else if (parteInteira >= 20 && NotasExistente.SingleOrDefault(s => s.Valor == 20).Qtd > 0)
-                {
-                    parteInteira -= 20;
-                    r20++;
-                    NotasExistente.SingleOrDefault(s => s.Valor == 20).Qtd--;
-                }
-                else if (parteInteira >= 10 && NotasExistente.SingleOrDefault(s => s.Valor == 10).Qtd > 0)
-                {
-                    parteInteira -= 10;
-                    r10++;
-                    NotasExistente.SingleOrDefault(s => s.Valor == 10).Qtd--;
-                }
-                else if(parteInteira > 0)
-                {
 
+            TratarNota(parteInteira);
+            TratarMoedas(parteFracionaria);
 
-                    parteFracionaria = parteInteira * 100 + parteFracionaria;
-                    parteInteira = 0;
-                }
-            }
-
-
-            while (parteFracionaria != 0)
-            {
-                if (parteFracionaria >= 50 && MoedasExistente.SingleOrDefault(s => s.Valor == 50).Qtd > 0)
-                {
-                    parteFracionaria -= 50;
-                    c50++; 
-                    MoedasExistente.SingleOrDefault(s => s.Valor == 50).Qtd--;
-                }
-                                            
-                else if (parteFracionaria >= 10 && MoedasExistente.SingleOrDefault(s => s.Valor == 10).Qtd > 0)
-                {
-                    parteFracionaria -= 10;
-                    c10++;
-                    MoedasExistente.SingleOrDefault(s => s.Valor == 10).Qtd--;
-                }
-                else if (parteFracionaria >= 5 && MoedasExistente.SingleOrDefault(s => s.Valor == 5).Qtd > 0)
-                {
-                    parteFracionaria -= 5;
-                    c5++;
-                    MoedasExistente.SingleOrDefault(s => s.Valor == 5).Qtd--;
-                }
-                else if (parteFracionaria >= 1 && MoedasExistente.SingleOrDefault(s => s.Valor == 1).Qtd > 0)
-                {
-                    parteFracionaria -= 1;
-                    c1++;
-                    MoedasExistente.SingleOrDefault(s => s.Valor == 1).Qtd--;
-                }
-                else if (parteFracionaria > 0)
-                {
-                    TrocoDisponivel = false;
-                    parteFracionaria = 0;
-                }
-
-            }
 
             if (!TrocoDisponivel)
             {

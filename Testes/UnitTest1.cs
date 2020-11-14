@@ -49,13 +49,10 @@ namespace Testes
             transacao.DataTransacao = DateTime.Now;
             var xxx = new TrocoServico(servicoTransacao, servicoNotas, servicoMoedas).ObterTroco(transacao);
 
-
-
-            Assert.Pass();
+            Assert.AreNotEqual(xxx.ValorTroco , 0);
         }
 
+       
 
-       
-       
     }
 }
